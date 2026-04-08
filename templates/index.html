@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер температур</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { text-align: center; }
+        .menu {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .btn {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .info {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌡️ Конвертер температур</h1>
+        <p style="text-align: center">Добро пожаловать! Выберите действие:</p>
+        
+        <div class="menu">
+            <a href="/convert" class="btn">🔄 Конвертировать</a>
+        </div>
+        
+        <div class="info">
+            <p>Поддерживаемые шкалы: Цельсий, Фаренгейт, Кельвин</p>
+        </div>
+    </div>
+</body>
+</html>

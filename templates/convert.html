@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертация</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { text-align: center; }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background: white;
+            color: #667eea;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        button:hover {
+            transform: scale(1.02);
+        }
+        .result {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔄 Конвертация температуры</h1>
+        
+        <form method="POST">
+            <label>Температура:</label>
+            <input type="number" step="any" name="temperature" value="{{ temp_value }}" required>
+            
+            <label>Из:</label>
+            <select name="from_scale">
+                <option value="celsius" {% if from_scale == 'celsius' %}selected{% endif %}>Цельсий (°C)</option>
+                <option value="fahrenheit" {% if from_scale == 'fahrenheit' %}selected{% endif %}>Фаренгейт (°F)</option>
+                <option value="kelvin" {% if from_scale == 'kelvin' %}selected{% endif %}>Кельвин (K)</option>
+            </select>
+            
+            <label>В:</label>
+            <select name="to_scale">
+                <option value="celsius" {% if to_scale == 'celsius' %}selected{% endif %}>Цельсий (°C)</option>
+                <option value="fahrenheit" {% if to_scale == 'fahrenheit' %}selected{% endif %}>Фаренгейт (°F)</option>
+                <option value="kelvin" {% if to_scale == 'kelvin' %}selected{% endif %}>Кельвин (K)</option>
+            </select>
+            
+            <button type="submit">Конвертировать</button>
+        </form>
+        
+        {% if result %}
+        <div class="result">
+            Результат: {{ result }}°
+        </div>
+        {% endif %}
+        
+        <a href="/" class="back-link">← На главную</a>
+    </div>
+</body>
+</html>
